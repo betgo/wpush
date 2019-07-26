@@ -76,6 +76,19 @@ bot.onText(/\/hentai/, function onLoveText(msg) {
     const resp = match[1];
     bot.sendMessage(chatId, resp);
   });
+  
+  bot.onText(/\/push (.+)/,(msg,match)=>{
+    const resp=match[1];
+    const chatId = msg.chat.id;
+    
+
+    fetch(`http://localhost:3000/push?message=${resp}`).then(
+        (res)=>{
+          console.log('res.status :', res.status);
+          bot.sendMessage(chatId,(res.status===200)?'推送成功':'推送失败');
+        }
+    )
+  })
 
 //   bot.on('message', (msg) => {
 //     const chatId = msg.chat.id;
