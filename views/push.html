@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+            body {
+            background: #F7F7F7;
+            font-size: 15px;
+            font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+            padding: 0;
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .wrapper {
+                max-width: 740px;
+                background: #FFF;
+                margin: 0 auto;
+                min-height: 100%;
+                padding: 61px 20px 10px 20px;
+            }
+        .wrapper.setting {
+                padding-top: 10px;
+            }
+       .form {
+                margin-bottom: 20px;
+            }
+            .form .element {
+                margin-bottom: 10px;
+            }
+        .form .message {
+                border: 1px solid #AAA;
+                min-height: 85px;
+                line-height: 25px;
+                padding: 5px;
+                box-shadow: inset 0 0 2px #999;
+                resize: none;
+                font-size: 16px;
+                width: 100%;
+            }
+        .form .b1{
+            float: right;
+            background: #5cb85c;
+            background-color:#4cae4c;
+            color:white;
+        }
+        .form .b1:disabled{
+            color:rgba(255, 255, 255, 0.171);
+        }
+        .b2{
+            float: right;
+            background: #5cb85c;
+            background-color:#4cae4c;
+            color:black;
+            margin-top: 20px;
+             margin-right: 10px;
+            }
+        .tt{
+           
+            border: 1 px;
+            border-block-color: black;
+        }
+        .jigu-content {
+            padding: 10px;
+            background: #9EDF60;
+            border-radius: 5px;
+            position: relative;
+            margin-top: 15px;
+            display: inline-block;
+            max-width: 620px;
+            white-space: pre-wrap;
+			word-wrap: break-word;
+        }
+        .jigu-body { margin-top: 20px; }
+        .jigu-body:first-child { margin: 0 }
+        .jigu-type-text .jig-content a { letter-spacing: 0; font-size: 14px; color: #555 }
+        .setting .jigu-body {margin: 0 -20px;padding: 20px;border-bottom: 1px solid #EEE;}
+        .setting .jigu-body:first-child {border-top: 1px solid #EEE;}
+        img{
+            width: 20px;
+            float: right;
+        }
+    </style>
+    	<link rel="stylesheet" href="../public/css/tips.css">
+</head>
+<body >
+    <div class="wrapper setting">
+    <form action="http://173.82.226.139:3000/send"  method="POST" class="form" >
+        <div class="element">
+            <textarea class="message reset" name="message" id="m1"></textarea>
+        </div>
+        <div style="padding: 10px 30px 10px 30px;     overflow: hidden;">
+            <button class="b1" type="submit" id="b1" disabled> 发送</button>
+        </div>
+        
+    </form>
+
+    <div id='tt' class="tt"></div>
+    </div>
+  <div class="tips"></div>
+    <script src="../public/js/push.js"></script>
+    <script src='../public/js/jquery.min.js'></script>
+	<script src="../public/js/tips.js"></script>
+    <!-- <script type="text/javascript">
+        function bu(){
+           var url="https://api.myjson.com/bins/dag8v";
+           var promise=fetch(url).then(response=>{  
+               if(response.status==200)
+               {
+                   return response.body;
+               }
+               else
+               return {};
+
+           })
+            var btn;
+           
+          promise=promise.then(data=>{
+              console.log(data);
+             
+              var node=document.createElement("div");
+              var nodetext=document.createTextNode(data.text);
+              node.appendChild(nodetext);
+                document.getElementById("tt").appendChild(node);
+          }).catch(err=>{console.log(err)});
+            btn=document.getElementById('b1');
+            btn.addEventListener('click',function(){
+                alert('sdfds');
+            })
+            
+        };
+     
+    </script> -->
+</body>
