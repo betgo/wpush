@@ -19,12 +19,21 @@ const bot = new TelegramBot(token, {
     polling: {
         interval: true
      },
+<<<<<<< HEAD
     // request: { // 设置代理
     //   agentClass: Agent,
     //   agentOptions: {
     //     socksPassword: 'wang.see'
     //   }
     // }
+=======
+    request: { // 设置代理
+      agentClass: Agent,
+      agentOptions: {
+        socksPassword: 'wang.see'
+      }
+    }
+>>>>>>> 43d3c9a1363e2fb31f809aa193edda7a138b9e2f
   });
 
     // bot.on('message',function(message)
@@ -77,12 +86,21 @@ bot.onText(/\/hentai/, function onLoveText(msg) {
     bot.sendMessage(chatId, resp);
   });
   
+<<<<<<< HEAD
   bot.onText(/\/push ([\s\S]*)/,(msg,match)=>{
     const resp=match[1];
     const chatId = msg.chat.id;
     const url='http://173.82.226.139:3000/push?message='+encodeURI(resp);
 
     fetch(url).then(
+=======
+  bot.onText(/\/push (.+)/,(msg,match)=>{
+    const resp=match[1];
+    const chatId = msg.chat.id;
+    
+
+    fetch(`http://localhost:3000/push?message=${resp}`).then(
+>>>>>>> 43d3c9a1363e2fb31f809aa193edda7a138b9e2f
         (res)=>{
           console.log('res.status :', res.status);
           bot.sendMessage(chatId,(res.status===200)?'推送成功':'推送失败');
