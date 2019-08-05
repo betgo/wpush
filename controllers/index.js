@@ -1,7 +1,6 @@
 const model=require('../model')
 const telegram = require('../bot');
 const fn_time=require('../uitl/time')
-<<<<<<< HEAD
 
 
 const chat_id=566203875;
@@ -9,16 +8,6 @@ const chat_id=566203875;
 
 var fn_index = async (ctx, next) => {
     await ctx.render('push');
-=======
-const chat_id=566203875;
-var fn_index = async (ctx, next) => {
-    ctx.response.body = `<h1>Index</h1>
-        <form action="/signin" method="post">
-            <p>Name: <input name="name" value="koa"></p>
-            <p>Password: <input name="password" type="password"></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>`;
->>>>>>> 43d3c9a1363e2fb31f809aa193edda7a138b9e2f
 };
 
 var fn_signin = async (ctx, next) => {
@@ -39,7 +28,7 @@ var fn_signin = async (ctx, next) => {
  * @param {*} next 
  */
 var fn_send=async(ctx,next)=>{
-        var mes=ctx.request.body.message || '';
+        ctx.request.body.message || '';
         // let {message}=ctx.request.body;
          //console.log(message);
         console.log(`message is ${mes}`);
