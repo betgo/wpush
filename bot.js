@@ -19,12 +19,12 @@ const bot = new TelegramBot(token, {
     polling: {
         interval: true
      },
-    // request: { // 设置代理
-    //   agentClass: Agent,
-    //   agentOptions: {
-    //     socksPassword: 'wang.see'
-    //   }
-    // }
+    request: { // 设置代理
+      agentClass: Agent,
+      agentOptions: {
+        socksPassword: 'wang.see'
+      }
+    }
   });
 
     // bot.on('message',function(message)

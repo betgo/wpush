@@ -1,5 +1,5 @@
 const model=require('../model')
-const telegram = require('../bot');
+//const telegram = require('../bot');
 const fn_time=require('../uitl/time')
 
 
@@ -7,7 +7,12 @@ const chat_id=566203875;
 
 
 var fn_index = async (ctx, next) => {
-    await ctx.render('push');
+    if(!ctx.session.user){
+        await  ctx.render('login');
+    }else{
+         await ctx.render('push');
+    }
+   
 };
 
 var fn_signin = async (ctx, next) => {
@@ -39,7 +44,7 @@ var fn_send=async(ctx,next)=>{
             message: mes,
         });
         console.log('created: ' + JSON.stringify(mm));
-        telegram.sendMessage(chat_id,mes);
+        //telegram.sendMessage(chat_id,mes);
        
         ctx.response.body={'mesage':'dsfsdf'};
 }
@@ -114,5 +119,5 @@ module.exports = {
     'POST /send' : fn_send,
     'GET /query': fn_query,
     'POST /delete': fn_delete,
-    'GET /push': fn_push
+    'GET /push': fn_push,
 };
