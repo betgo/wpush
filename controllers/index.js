@@ -1,3 +1,9 @@
+/*
+ * @Author: wxx 
+ * @Date: 2019-07-26 12:05:30 
+ * @Last Modified by:   wxx 
+ * @Last Modified time: 2019-07-26 12:05:30 
+ */
 const model=require('../model')
 const telegram = require('../bot');
 const fn_time=require('../uitl/time')
