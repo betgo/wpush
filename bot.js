@@ -77,12 +77,12 @@ bot.onText(/\/hentai/, function onLoveText(msg) {
     bot.sendMessage(chatId, resp);
   });
   
-  bot.onText(/\/push (.+)/,(msg,match)=>{
+  bot.onText(/\/push ([\s\S]*)/,(msg,match)=>{
     const resp=match[1];
     const chatId = msg.chat.id;
-    
+    const url='http://173.82.226.139:3000/push?message='+encodeURI(resp);
 
-    fetch(`http://localhost:3000/push?message=${resp}`).then(
+    fetch(url).then(
         (res)=>{
           console.log('res.status :', res.status);
           bot.sendMessage(chatId,(res.status===200)?'推送成功':'推送失败');

@@ -5,16 +5,20 @@
  * @Last Modified time: 2019-07-26 12:05:30 
  */
 const model=require('../model')
-const telegram = require('../bot');
+//const telegram = require('../bot');
 const fn_time=require('../uitl/time')
+
+
 const chat_id=566203875;
+
+
 var fn_index = async (ctx, next) => {
-    ctx.response.body = `<h1>Index</h1>
-        <form action="/signin" method="post">
-            <p>Name: <input name="name" value="koa"></p>
-            <p>Password: <input name="password" type="password"></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>`;
+    if(!ctx.session.user){
+        await  ctx.render('login');
+    }else{
+         await ctx.render('push');
+    }
+   
 };
 
 var fn_signin = async (ctx, next) => {
@@ -35,7 +39,7 @@ var fn_signin = async (ctx, next) => {
  * @param {*} next 
  */
 var fn_send=async(ctx,next)=>{
-        var mes=ctx.request.body.message || '';
+        ctx.request.body.message || '';
         // let {message}=ctx.request.body;
          //console.log(message);
         console.log(`message is ${mes}`);
@@ -46,7 +50,7 @@ var fn_send=async(ctx,next)=>{
             message: mes,
         });
         console.log('created: ' + JSON.stringify(mm));
-        telegram.sendMessage(chat_id,mes);
+        //telegram.sendMessage(chat_id,mes);
        
         ctx.response.body={'mesage':'dsfsdf'};
 }
@@ -121,5 +125,5 @@ module.exports = {
     'POST /send' : fn_send,
     'GET /query': fn_query,
     'POST /delete': fn_delete,
-    'GET /push': fn_push
+    'GET /push': fn_push,
 };
