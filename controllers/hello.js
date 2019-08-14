@@ -10,7 +10,8 @@ var fn_login=async(ctx,next)=>{
     var password=ctx.request.body.password || '';
     if(username=='123' && password=='123'){
     ctx.session.user = username;
-    ctx.body = { success: true, msg: '登录成功！' };
+    //ctx.body = { success: true, msg: '登录成功！' };
+       await ctx.render('push');
                 }
     else{
     ctx.body = { success: false, msg: '账号或密码错误！' };
